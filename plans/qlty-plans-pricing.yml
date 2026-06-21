@@ -1,0 +1,180 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Qlty
+providerId: qlty
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: true
+tags:
+- Code Quality
+- Code Coverage
+- Static Analysis
+- Linting
+- Developer Tools
+- Plans
+description: >-
+  Qlty separates its free, open (Fair Source) Qlty CLI from the hosted Qlty
+  Cloud service. The Qlty CLI is completely free for all use, including
+  commercial projects, with no limits on contributors. Qlty Cloud is offered
+  in a free tier plus per-contributor paid plans (Pro and Enterprise) metered
+  on analysis minutes and AI autofixes. Annual subscriptions include two months
+  free, and discounts apply for open source, education, non-profits, and volume.
+notes: >-
+  Per-seat prices and included quotas are as published on the Qlty pricing page
+  and are subject to change; verify against qlty.sh/pricing during
+  reconciliation. The Qlty CLI (including qlty coverage publish) is free.
+sources:
+- https://qlty.sh/pricing
+- https://docs.qlty.sh/what-is-qlty
+- https://github.com/qltysh/qlty
+plans:
+- id: qlty-cli
+  name: Qlty CLI
+  type: free
+  description: >-
+    The Rust-based Qlty CLI for linting, auto-formatting, security scanning,
+    code smells, duplication, maintainability metrics, and coverage publishing.
+    Free for all use including commercial projects, with no contributor limits.
+  entries:
+  - label: Qlty CLI
+    name: cli
+    type: free
+    metric: usage
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: free
+    userMultiplied: false
+  elements:
+  - name: Linting & Auto-formatting
+  - name: Security Scanning
+  - name: Code Smells & Duplication
+  - name: Maintainability Metrics
+  - name: Coverage Publishing (qlty coverage publish)
+- id: qlty-cloud-free
+  name: Free
+  type: free
+  description: >-
+    Qlty Cloud free tier with unlimited contributors and repositories
+    (public and private), including a monthly allotment of analysis minutes
+    and AI autofixes.
+  entries:
+  - label: Price
+    name: price
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $0
+    userMultiplied: false
+  - label: Analysis Minutes
+    name: analysis_minutes
+    type: usage
+    metric: minutes
+    limit: 1000
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  - label: AI Autofixes
+    name: ai_autofixes
+    type: usage
+    metric: autofixes
+    limit: 100
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  elements:
+  - name: Linting & Auto-formatting
+  - name: Code Coverage
+  - name: Maintainability Analysis
+  - name: Community Support
+- id: qlty-cloud-pro
+  name: Pro
+  type: subscription
+  description: >-
+    Per-contributor paid tier adding shared configurations, trends and
+    hotspots, one year of history, accelerated analysis, and higher monthly
+    quotas. Annual subscriptions receive two months free.
+  entries:
+  - label: Per Contributor
+    name: per_contributor
+    type: flat
+    metric: seat
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $20 per contributor / month
+    userMultiplied: true
+  - label: Analysis Minutes
+    name: analysis_minutes
+    type: usage
+    metric: minutes
+    limit: 20000
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  - label: AI Autofixes
+    name: ai_autofixes
+    type: usage
+    metric: autofixes
+    limit: 5000
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  elements:
+  - name: Shared Configurations
+  - name: Trends & Hotspots
+  - name: One Year History
+  - name: Accelerated Analysis
+  - name: Email Support
+- id: qlty-cloud-enterprise
+  name: Enterprise
+  type: enterprise
+  description: >-
+    Per-contributor enterprise tier adding advanced analytics, organization
+    policies, priority support with SLA, audit logs, custom permissions, and
+    manual invoicing. Additional analysis minutes available at $0.01/minute.
+  entries:
+  - label: Per Contributor
+    name: per_contributor
+    type: flat
+    metric: seat
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $30 per contributor / month
+    userMultiplied: true
+  - label: Analysis Minutes
+    name: analysis_minutes
+    type: usage
+    metric: minutes
+    limit: 75000
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: included; overage $0.01 per minute
+    userMultiplied: false
+  elements:
+  - name: Advanced Analytics
+  - name: Organization Policies
+  - name: Priority Support with SLA
+  - name: Audit Logs
+  - name: Custom Permissions
+  - name: Named Account Manager
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

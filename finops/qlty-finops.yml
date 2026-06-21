@@ -1,0 +1,103 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Qlty
+providerId: qlty
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: true
+tags:
+- Code Quality
+- Code Coverage
+- Static Analysis
+- Linting
+- Developer Tools
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Qlty spend. The Qlty CLI is free for all use. Qlty Cloud bills
+  on a per-contributor (seat) subscription model - Free, Pro ($20/contributor/mo),
+  and Enterprise ($30/contributor/mo) - with monthly quotas of analysis minutes
+  and AI autofixes. Enterprise can purchase additional analysis minutes at
+  $0.01/minute. Annual billing includes two months free; discounts apply for
+  open source, education, non-profits, and volume.
+notes: >-
+  Per-seat rates and quotas are subject to change; verify against the Qlty
+  pricing page during reconciliation.
+sources:
+- https://qlty.sh/pricing
+- https://docs.qlty.sh/what-is-qlty
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Qlty Software
+serviceCategory: Developer Tools
+billingModel:
+  pricingCategory: Subscription-Based
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+  - Usage
+  - Purchase
+  - Adjustment
+focusColumns:
+  ServiceName: Qlty Cloud
+  ServiceCategory: Developer Tools
+  ProviderName: Qlty
+  PublisherName: Qlty Software
+  InvoiceIssuerName: Qlty Software
+  BillingCurrency: USD
+  ChargeCategory: Usage
+  PricingCategory: Subscription-Based
+meters:
+- name: contributor_seats
+  description: Active contributors billed per month on Pro and Enterprise plans.
+  unit: seats
+  aggregation: sum
+  dimensions:
+  - account
+  - plan
+- name: analysis_minutes
+  description: Cloud analysis minutes consumed per month, bounded by plan quota.
+  unit: minutes
+  aggregation: sum
+  dimensions:
+  - account
+  - repository
+- name: analysis_minutes_overage
+  description: Additional analysis minutes purchased beyond the Enterprise quota at $0.01/minute.
+  unit: minutes
+  aggregation: sum
+  dimensions:
+  - account
+- name: ai_autofixes
+  description: AI autofixes consumed per month, bounded by plan quota.
+  unit: autofixes
+  aggregation: sum
+  dimensions:
+  - account
+  - repository
+- name: coverage_uploads
+  description: Coverage reports published via qlty coverage publish; counts against plan analysis quota.
+  unit: uploads
+  aggregation: sum
+  dimensions:
+  - account
+  - repository
+principles:
+- name: Visibility
+  description: Track active contributor count and monthly analysis-minute / autofix burn against plan quotas.
+- name: Allocation
+  description: Map repositories and contributors to teams / cost centers; the free CLI offloads work from metered cloud minutes.
+- name: Optimization
+  description: Use the free Qlty CLI locally and in CI where possible; choose annual billing (two months free) and apply OSS / education / non-profit / volume discounts; right-size the per-contributor plan.
+- name: Accountability
+  description: Review seat count and analysis-minute consumption monthly; manage Enterprise overage at $0.01/minute against budget.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

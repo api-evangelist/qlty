@@ -1,0 +1,73 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Qlty
+providerId: qlty
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- Code Quality
+- Code Coverage
+- Static Analysis
+- Linting
+- Developer Tools
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  Qlty does not publish a documented public REST API, so there are no
+  documented per-endpoint HTTP rate limits. Usage on Qlty Cloud is instead
+  governed by plan-based quotas - monthly analysis minutes and AI autofixes -
+  rather than request-per-minute throttling. The Qlty CLI (including
+  qlty coverage publish) runs locally and is not subject to API rate limits,
+  though coverage ingestion is bounded by the project's Qlty Cloud plan quotas.
+notes: >-
+  Quota values track the Qlty pricing plans (see plans/qlty-plans-pricing.yml).
+  Verify current allotments and any service throttling on the Qlty pricing and
+  docs pages during reconciliation.
+sources:
+- https://qlty.sh/pricing
+- https://docs.qlty.sh/coverage/quickstart
+- https://docs.qlty.sh/what-is-qlty
+responseCodes:
+  throttled: not documented
+limits:
+- name: Analysis Minutes (Free)
+  scope: account
+  metric: minutes
+  limit: 1000 per month
+  notes: Monthly analysis-minute quota on the Qlty Cloud Free plan.
+- name: Analysis Minutes (Pro)
+  scope: account
+  metric: minutes
+  limit: 20000 per month
+  notes: Monthly analysis-minute quota on the Qlty Cloud Pro plan.
+- name: Analysis Minutes (Enterprise)
+  scope: account
+  metric: minutes
+  limit: 75000 per month
+  notes: Monthly analysis-minute quota on Enterprise; overage at $0.01/minute.
+- name: AI Autofixes (Free)
+  scope: account
+  metric: autofixes
+  limit: 100 per month
+  notes: Monthly AI autofix quota on the Free plan.
+- name: AI Autofixes (Pro)
+  scope: account
+  metric: autofixes
+  limit: 5000 per month
+  notes: Monthly AI autofix quota on the Pro plan.
+- name: Coverage Upload
+  scope: project
+  metric: uploads
+  limit: governed by plan analysis quota
+  notes: qlty coverage publish ingestion counts against the project's Qlty Cloud plan; no documented per-request rate limit.
+policies:
+- name: Plan-Based Quotas
+  description: Usage is bounded by monthly analysis minutes and AI autofixes per plan rather than HTTP request rate limits.
+- name: Enterprise Overage
+  description: Enterprise customers can purchase additional analysis minutes at $0.01 per minute beyond the included quota.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

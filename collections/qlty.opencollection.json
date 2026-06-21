@@ -1,0 +1,90 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Qlty",
+    "version": "1.0",
+    "description": "Qlty is a code quality and coverage platform combining the free Rust-based Qlty CLI with the hosted Qlty Cloud service. Qlty does not publish a documented public REST API; this collection documents the real surfaces - the Qlty CLI commands (including coverage publishing) and the official documentation/source links - rather than fabricated HTTP endpoints."
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Qlty CLI",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "CLI Quickstart Documentation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://docs.qlty.sh/cli/quickstart"
+          },
+          "docs": "The free, Rust-based Qlty CLI for linting, auto-formatting, security scanning, code smells, duplication, and maintainability metrics. Local command-line tool (not an HTTP API). Install with `curl https://qlty.sh | sh`. Key commands: qlty init, qlty check, qlty fmt, qlty smells, qlty metrics."
+        },
+        {
+          "info": {
+            "name": "Source Code (qltysh/qlty)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://github.com/qltysh/qlty"
+          },
+          "docs": "Qlty CLI source (Rust, Fair Source / BSL 1.1). Free for all use including commercial projects, with no limits on contributors."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Qlty Coverage Upload",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Coverage Quickstart Documentation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://docs.qlty.sh/coverage/quickstart"
+          },
+          "docs": "Coverage is uploaded with `qlty coverage publish <report-file>` (e.g. `qlty coverage publish coverage/lcov.info`), authenticated by the per-project QLTY_COVERAGE_TOKEN environment variable. Use --format for the report format and --add-prefix / --strip-prefix for path adjustments. No documented public REST upload endpoint exists."
+        },
+        {
+          "info": {
+            "name": "Generating Coverage Data Documentation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://docs.qlty.sh/coverage/generating-data"
+          },
+          "docs": "Supported coverage report formats: lcov, Cobertura, Clover, JaCoCo, SimpleCov, dotCover, xccov-json, and the generic qlty jsonl format."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Qlty Cloud",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "What is Qlty Documentation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://docs.qlty.sh/what-is-qlty"
+          },
+          "docs": "Qlty Cloud is the hosted platform for automated pull request review, quality gates, trends, and dashboards. It is consumed through Git provider integrations (GitHub App / Action) and the web app rather than a documented public REST API."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

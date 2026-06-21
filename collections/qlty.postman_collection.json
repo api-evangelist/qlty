@@ -1,0 +1,109 @@
+{
+  "info": {
+    "name": "Qlty",
+    "description": "Qlty is a code quality and coverage platform from the team behind Code Climate, combining the free Rust-based Qlty CLI with the hosted Qlty Cloud service. Qlty does not publish a documented public REST API, so this collection does not contain live HTTP API requests. Instead it documents Qlty's real surfaces: the Qlty CLI commands (including coverage publishing) and the official documentation and source links. Coverage is uploaded with `qlty coverage publish` authenticated by the QLTY_COVERAGE_TOKEN environment variable.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Qlty CLI",
+      "description": "The free, Rust-based Qlty CLI for linting, auto-formatting, security scanning, code smells, duplication, and maintainability metrics. This is a local command-line tool, not an HTTP API. Install with `curl https://qlty.sh | sh`. Configuration lives in .qlty/qlty.toml.",
+      "item": [
+        {
+          "name": "Documentation - CLI Quickstart",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://docs.qlty.sh/cli/quickstart",
+              "protocol": "https",
+              "host": ["docs", "qlty", "sh"],
+              "path": ["cli", "quickstart"]
+            },
+            "description": "Documentation for the Qlty CLI. Key commands: qlty init, qlty check, qlty fmt, qlty smells, qlty metrics."
+          },
+          "response": []
+        },
+        {
+          "name": "Source Code - qltysh/qlty",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://github.com/qltysh/qlty",
+              "protocol": "https",
+              "host": ["github", "com"],
+              "path": ["qltysh", "qlty"]
+            },
+            "description": "Qlty CLI source (Rust, Fair Source / BSL 1.1). Free for all use including commercial projects."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Qlty Coverage Upload",
+      "description": "Coverage publishing via the CLI command `qlty coverage publish <report-file>`, authenticated by the per-project QLTY_COVERAGE_TOKEN environment variable. Supported formats: lcov, Cobertura, Clover, JaCoCo, SimpleCov, dotCover, xccov-json. No documented public REST upload endpoint exists.",
+      "item": [
+        {
+          "name": "Documentation - Coverage Quickstart",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://docs.qlty.sh/coverage/quickstart",
+              "protocol": "https",
+              "host": ["docs", "qlty", "sh"],
+              "path": ["coverage", "quickstart"]
+            },
+            "description": "Example: `qlty coverage publish coverage/lcov.info` with $QLTY_COVERAGE_TOKEN set in the environment. Use --format to specify the report format and --add-prefix / --strip-prefix to adjust file paths."
+          },
+          "response": []
+        },
+        {
+          "name": "Documentation - Generating Coverage Data",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://docs.qlty.sh/coverage/generating-data",
+              "protocol": "https",
+              "host": ["docs", "qlty", "sh"],
+              "path": ["coverage", "generating-data"]
+            },
+            "description": "Supported coverage report formats and per-language configuration (lcov, Cobertura, Clover, JaCoCo, SimpleCov, dotCover, xccov-json, qlty jsonl)."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Qlty Cloud",
+      "description": "Qlty Cloud is the hosted platform for automated pull request review, quality gates, trends, and dashboards. It is consumed through Git provider integrations (GitHub App / Action) and the web app rather than a documented public REST API.",
+      "item": [
+        {
+          "name": "Documentation - What is Qlty",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://docs.qlty.sh/what-is-qlty",
+              "protocol": "https",
+              "host": ["docs", "qlty", "sh"],
+              "path": ["what-is-qlty"]
+            },
+            "description": "Overview of Qlty CLI and Qlty Cloud, and the relationship to Code Climate."
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "QLTY_COVERAGE_TOKEN",
+      "value": "",
+      "description": "Per-project coverage token supplied to `qlty coverage publish` as an environment variable. Documented as a CLI env var, not a documented public REST API header."
+    }
+  ]
+}

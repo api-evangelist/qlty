@@ -1,0 +1,89 @@
+aid: qlty
+name: Qlty
+review:
+  question: Does Qlty expose a documented public HTTP REST API?
+  answer: false
+  date: '2026-06-21'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was created. Qlty exposes no event-driven, streaming,
+    SSE, or WebSocket surface to model. Its interfaces are a local CLI and
+    Git-provider integrations, neither of which is an asynchronous messaging
+    API.
+findings:
+  summary: |
+    Qlty does not publish a documented public HTTP REST API. The platform has
+    two surfaces: (1) the free, Rust-based Qlty CLI, a local command-line tool
+    for linting, formatting, security scanning, code smells, duplication, and
+    maintainability metrics, configured via .qlty/qlty.toml; and (2) Qlty Cloud,
+    a hosted service for automated pull request review, quality gates, trends,
+    and dashboards consumed through Git provider integrations (GitHub App /
+    Action) and the web app. Code coverage is uploaded with the CLI command
+    `qlty coverage publish <report-file>` authenticated by a per-project
+    QLTY_COVERAGE_TOKEN environment variable; the upload destination is handled
+    internally by the CLI / GitHub Action and is not documented as a public
+    REST endpoint. Because no public HTTP endpoints are documented, the OpenAPI
+    document uses an empty paths object and no endpoints were fabricated.
+  transports:
+    - protocol: CLI
+      scheme: local
+      note: Qlty CLI is a local binary (install via curl https://qlty.sh | sh); not an HTTP API.
+      documented: true
+    - protocol: REST
+      scheme: https
+      note: No public REST API base URL or endpoint reference is documented for Qlty CLI or Qlty Cloud.
+      documented: false
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented.
+  coverageUpload:
+    command: qlty coverage publish <report-file>
+    auth: QLTY_COVERAGE_TOKEN environment variable (per-project token)
+    formats:
+      - lcov
+      - Cobertura
+      - Clover
+      - JaCoCo
+      - SimpleCov
+      - dotCover
+      - xccov-json
+      - qlty (generic jsonl)
+    documentedPublicEndpoint: false
+    note: Upload is performed by the CLI / GitHub Action; no public HTTP upload endpoint is documented.
+  cliCommandsConfirmed:
+    - qlty init
+    - qlty check
+    - qlty fmt
+    - qlty smells
+    - qlty metrics
+    - qlty coverage publish
+sources:
+  - url: https://docs.qlty.sh/what-is-qlty
+    type: Documentation
+    note: Describes Qlty CLI (free, open, Rust) and Qlty Cloud (hosted PR review, coverage, dashboards); no public REST API reference.
+  - url: https://docs.qlty.sh/coverage/quickstart
+    type: Documentation
+    note: Coverage upload via qlty coverage publish with QLTY_COVERAGE_TOKEN; no public HTTP endpoint disclosed.
+  - url: https://docs.qlty.sh/coverage/generating-data
+    type: Documentation
+    note: Lists supported coverage report formats (lcov, Cobertura, Clover, JaCoCo, SimpleCov, dotCover, xccov-json, qlty).
+  - url: https://github.com/qltysh/qlty
+    type: SourceCode
+    note: Qlty CLI source; Rust; Fair Source (BSL 1.1) license; free for all use.
+  - url: https://qlty.sh/pricing
+    type: Pricing
+    note: Free / Pro ($20/contributor) / Enterprise ($30/contributor) Qlty Cloud plans.
+actions:
+  openapiPath: openapi/qlty-openapi.yml
+  apisYmlUpdated: true
+  reason: |
+    No public HTTP REST API surface exists. The OpenAPI 3.0.1 document was
+    authored with an empty paths object and an accurate description documenting
+    the CLI and coverage-upload model, plus a QLTY_COVERAGE_TOKEN security
+    scheme noted as a CLI environment variable rather than a documented REST
+    header. No endpoints were fabricated.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

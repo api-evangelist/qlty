@@ -1,0 +1,107 @@
+aid: qlty
+url: https://raw.githubusercontent.com/api-evangelist/qlty/refs/heads/main/apis.yml
+name: Qlty
+kind: company
+description: Qlty is a code quality and coverage platform from the team behind Code
+  Climate. It pairs the free Qlty CLI - a polyglot Rust tool for universal linting,
+  auto-formatting, security scanning, and maintainability analysis - with Qlty Cloud,
+  a hosted service for automated pull request review, code coverage upload, quality
+  gates, and dashboards.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Code Quality
+- Code Coverage
+- Static Analysis
+- Linting
+- Developer Tools
+created: '2026-06-21'
+modified: '2026-06-21'
+specificationVersion: '0.19'
+apis:
+- aid: qlty:qlty-cli
+  name: Qlty CLI
+  tags:
+  - CLI
+  - Linting
+  - Formatting
+  - Static Analysis
+  - Maintainability
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.qlty.sh/cli/quickstart
+  baseURL: https://qlty.sh
+  properties:
+  - url: https://docs.qlty.sh/cli/quickstart
+    type: Documentation
+  - url: https://github.com/qltysh/qlty
+    type: SourceCode
+  - url: openapi/qlty-openapi.yml
+    type: OpenAPI
+  description: The free Qlty CLI is a polyglot, Rust-based command-line tool for universal
+    linting, auto-formatting, security scanning, code smells, duplication, and maintainability
+    metrics. It runs 70+ static analysis tools across 40+ languages natively (no Docker),
+    is configured via a .qlty/qlty.toml file, and is free for all use including commercial
+    projects. The CLI is a local developer tool, not an HTTP API; key commands include
+    qlty init, qlty check, qlty fmt, qlty smells, qlty metrics, and qlty coverage publish.
+- aid: qlty:qlty-coverage-upload
+  name: Qlty Coverage Upload
+  tags:
+  - Code Coverage
+  - Upload
+  - CI/CD
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.qlty.sh/coverage/quickstart
+  baseURL: https://qlty.sh
+  properties:
+  - url: https://docs.qlty.sh/coverage/quickstart
+    type: Documentation
+  - url: https://docs.qlty.sh/coverage/generating-data
+    type: Documentation
+  - url: openapi/qlty-openapi.yml
+    type: OpenAPI
+  description: Coverage publishing is performed by the Qlty CLI command qlty coverage
+    publish, which uploads test coverage reports to Qlty Cloud from a CI pipeline.
+    It authenticates with a per-project QLTY_COVERAGE_TOKEN environment variable and
+    accepts standard report formats including lcov, Cobertura, Clover, JaCoCo, SimpleCov,
+    dotCover, and xccov-json. Qlty does not publish a documented public REST endpoint
+    for coverage upload; ingestion is handled through the CLI / GitHub Action.
+- aid: qlty:qlty-cloud
+  name: Qlty Cloud API
+  tags:
+  - Cloud
+  - Pull Request Review
+  - Quality Gates
+  - Dashboards
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.qlty.sh/what-is-qlty
+  baseURL: https://qlty.sh
+  properties:
+  - url: https://docs.qlty.sh/what-is-qlty
+    type: Documentation
+  - url: https://qlty.sh/
+    type: Website
+  - url: openapi/qlty-openapi.yml
+    type: OpenAPI
+  description: Qlty Cloud is the hosted platform that analyzes pull requests, posts
+    automated code review comments on newly introduced issues, enforces quality gates,
+    aggregates coverage, and renders trends and dashboards. It is consumed primarily
+    through Git provider integrations (GitHub App / Action) and the web app rather
+    than a documented public REST API; no public HTTP API surface is published as of
+    this catalog entry.
+common:
+- type: GitHubOrganization
+  url: https://github.com/qltysh
+- type: LinkedIn
+  url: https://www.linkedin.com/company/qltysh
+- type: Website
+  url: https://qlty.sh/
+- type: Documentation
+  url: https://docs.qlty.sh
+- type: Plans
+  url: plans/qlty-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/qlty-rate-limits.yml
+- type: FinOps
+  url: finops/qlty-finops.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
