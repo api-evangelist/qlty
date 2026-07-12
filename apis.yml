@@ -88,6 +88,10 @@ apis:
     than a documented public REST API; no public HTTP API surface is published as of
     this catalog entry.
 common:
+- type: DomainSecurity
+  url: security/qlty-domain-security.yml
+- type: Authentication
+  url: authentication/qlty-authentication.yml
 - type: GitHubOrganization
   url: https://github.com/qltysh
 - type: LinkedIn
@@ -102,6 +106,8 @@ common:
   url: rate-limits/qlty-rate-limits.yml
 - type: FinOps
   url: finops/qlty-finops.yml
+- type: Blog
+  url: https://qlty.sh/blog
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
