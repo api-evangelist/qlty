@@ -1,0 +1,14 @@
+{
+  "provider": "qlty",
+  "sources": [
+    "qlty-openapi.yml"
+  ],
+  "outputs": [],
+  "archived": [
+    "archived qlty-openapi.yml"
+  ],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
