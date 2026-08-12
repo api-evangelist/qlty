@@ -47,7 +47,7 @@ apis:
     type: Documentation
   - url: https://github.com/qltysh/qlty
     type: SourceCode
-  - url: openapi/qlty-openapi.yml
+  - url: openapi/_original/qlty-openapi.yml
     type: OpenAPI
   description: The free Qlty CLI is a polyglot, Rust-based command-line tool for universal
     linting, auto-formatting, security scanning, code smells, duplication, and maintainability
@@ -69,7 +69,7 @@ apis:
     type: Documentation
   - url: https://docs.qlty.sh/coverage/generating-data
     type: Documentation
-  - url: openapi/qlty-openapi.yml
+  - url: openapi/_original/qlty-openapi.yml
     type: OpenAPI
   description: Coverage publishing is performed by the Qlty CLI command qlty coverage
     publish, which uploads test coverage reports to Qlty Cloud from a CI pipeline.
@@ -92,7 +92,7 @@ apis:
     type: Documentation
   - url: https://qlty.sh/
     type: Website
-  - url: openapi/qlty-openapi.yml
+  - url: openapi/_original/qlty-openapi.yml
     type: OpenAPI
   description: Qlty Cloud is the hosted platform that analyzes pull requests, posts
     automated code review comments on newly introduced issues, enforces quality gates,
