@@ -7,6 +7,18 @@ description: Qlty is a code quality and coverage platform from the team behind C
   auto-formatting, security scanning, and maintainability analysis - with Qlty Cloud,
   a hosted service for automated pull request review, code coverage upload, quality
   gates, and dashboards.
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: true
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - pricing
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
