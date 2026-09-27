@@ -9,6 +9,10 @@ description: Qlty is a code quality and coverage platform from the team behind C
   gates, and dashboards.
 deliveryModel:
   model: unknown
+  license_evidence:
+    repo: qltysh/qlty
+    spdx: NOASSERTION
+    stars: 3167
   open_source: unknown
   commercial: true
   callable_host: false
@@ -17,7 +21,7 @@ deliveryModel:
   source:
   - pricing
   - repository-unlicensed
-  generated: '2026-08-28'
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: freemium
@@ -53,7 +57,6 @@ apis:
   - Maintainability
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://docs.qlty.sh/cli/quickstart
-  baseURL: https://qlty.sh
   properties:
   - url: https://docs.qlty.sh/cli/quickstart
     type: Documentation
@@ -75,7 +78,6 @@ apis:
   - CI/CD
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://docs.qlty.sh/coverage/quickstart
-  baseURL: https://qlty.sh
   properties:
   - url: https://docs.qlty.sh/coverage/quickstart
     type: Documentation
@@ -98,7 +100,6 @@ apis:
   - Dashboards
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://docs.qlty.sh/what-is-qlty
-  baseURL: https://qlty.sh
   properties:
   - url: https://docs.qlty.sh/what-is-qlty
     type: Documentation
