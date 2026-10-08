@@ -183,3 +183,53 @@ plans:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - hybrid
+  - subscription
+  units:
+  - compute
+  - none
+  - period
+  - seat
+  plans:
+  - name: Qlty CLI
+    access: free
+    model: free
+    model_how: derived
+    units:
+    - none
+    periods:
+    - month
+  - name: Free
+    access: free
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    - other
+    - period
+    periods:
+    - month
+  - name: Pro
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - compute
+    - other
+    - seat
+    periods:
+    - month
+  - name: Enterprise
+    access: enterprise
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    - seat
+    periods:
+    - month
